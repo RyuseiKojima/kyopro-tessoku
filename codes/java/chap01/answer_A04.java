@@ -1,11 +1,13 @@
 import java.util.*;
 
-class Main {
+class Answer_A04 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		// 入力
 		int N = sc.nextInt();
+
+		sc.close();
 
 		// 上の桁から順番に「2 進法に変換した値」を求める
 		for (int x = 9; x >= 0; x--) {
