@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A06 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -18,6 +18,8 @@ class Main {
 			L[j] = sc.nextInt();
 			R[j] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 累積和の計算
 		S[0] = 0;
