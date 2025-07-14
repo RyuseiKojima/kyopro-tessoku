@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A07 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -14,6 +14,8 @@ class Main {
 			L[i] = sc.nextInt();
 			R[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 前日比に加算
 		for (int d = 1; d <= D; d++) B[d] = 0;

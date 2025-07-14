@@ -1,6 +1,6 @@
 import java.util.*;
  
-class Main {
+class Answer_A10 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
  
@@ -17,12 +17,14 @@ class Main {
 			L[d] = sc.nextInt();
 			R[d] = sc.nextInt();
 		}
- 
+
+		sc.close();
+
 		// P[i] を求める
 		int[] P = new int[N + 1];
 		P[1] = A[1];
 		for (int i = 2; i <= N; i++) P[i] = Math.max(P[i - 1], A[i]);
- 
+
 		// Q[i] を求める
 		int[] Q = new int[N + 1];
 		Q[N] = A[N];

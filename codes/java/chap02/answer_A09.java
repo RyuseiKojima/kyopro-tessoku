@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A09 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -18,6 +18,8 @@ class Main {
 			C[i] = sc.nextInt();
 			D[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 各日について加算
 		int[][] X = new int[H + 2][W + 2];

@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A08 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -25,6 +25,8 @@ class Main {
 			C[i] = sc.nextInt();
 			D[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 配列 Z の初期化
 		for (int i = 0; i <= H; i++) {
