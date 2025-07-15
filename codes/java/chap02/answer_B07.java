@@ -5,36 +5,22 @@ class Answer_B07 {
 		Scanner sc = new Scanner(System.in);
 
 		// 入力
+		int t = sc.nextInt();
 		int n = sc.nextInt();
-		int[][] A = new int[1501][1501];
-		for (int i = 1; i <= n; i++) {
-			int x = sc.nextInt();
-			int y = sc.nextInt();
-			A[x][y]++;
+		int[] people = new int[t+1]; 
+		for (int i = 0; i < n; i++) {
+			int l = sc.nextInt();
+			int r = sc.nextInt();
+			people[l]++;
+			people[r]--;
 		}
 
-		for (int i = 1; i <= 1500; i++) {
-			for (int j = 1; j <= 1500; j++) {
-				A[i][j] += A[i][j - 1];
-			}
-		}
-
-		for (int i = 1; i <= 1500; i++) {
-			for (int j = 1; j <= 1500; j++) {
-				A[j][i] += A[j - 1][i];
-			}
-		}
-
-		int q = sc.nextInt();
-		for (int i = 1; i <= q; i++) {
-			int x1 = sc.nextInt();
-			int y1 = sc.nextInt();
-			int x2 = sc.nextInt();
-			int y2 = sc.nextInt();
-			int result = A[x2][y2] - A[x1 - 1][y2] - A[x2][y1 - 1] + A[x1 - 1][y1 - 1];
-			System.out.println(result);
+		int count = 0;
+		for (int i = 0; i < t; i++) {
+			count += people[i];
+			System.out.println(count);
 		}
 
 		sc.close();
 	}
-}
+};
