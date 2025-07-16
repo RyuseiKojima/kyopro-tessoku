@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A11 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -9,6 +9,8 @@ class Main {
 		X = sc.nextInt();
 		A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
+
+		sc.close();
 
 		// 二分探索を行う
 		int Answer = search(X);
