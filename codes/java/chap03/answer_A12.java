@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A12 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -9,6 +9,8 @@ class Main {
 		K = sc.nextInt();
 		A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
+
+		sc.close();
 
 		// 二分探索
 		// Left は探索範囲の左端を、Right は探索範囲の右端を表す
