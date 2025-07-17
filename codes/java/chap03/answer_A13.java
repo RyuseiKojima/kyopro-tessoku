@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A13 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -9,6 +9,8 @@ class Main {
 		int K = sc.nextInt();
 		int[] A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
+
+		sc.close();
 
 		// 配列 R の定義
 		int[] R = new int[N + 1];
