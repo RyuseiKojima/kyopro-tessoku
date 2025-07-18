@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A14 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -15,6 +15,8 @@ class Main {
 		for (int y = 1; y <= N; y++) B[y] = sc.nextInt();
 		for (int z = 1; z <= N; z++) C[z] = sc.nextInt();
 		for (int w = 1; w <= N; w++) D[w] = sc.nextInt();
+
+		sc.close();
 
 		// 配列 P を作成
 		ArrayList<Integer> P = new ArrayList<Integer>();
