@@ -9,6 +9,8 @@ class Answer_A15 {
 		int[] A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
 
+		sc.close();
+
 		// 配列 T の作成・重複を消す
 		HashSet<Integer> tmp = new HashSet<Integer>();
 		for (int i = 1; i <= N; i++) tmp.add(A[i]);
