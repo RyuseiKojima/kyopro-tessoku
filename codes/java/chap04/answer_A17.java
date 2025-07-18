@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A17 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -10,6 +10,8 @@ class Main {
 		int[] B = new int[N + 1];
 		for (int i = 2; i <= N; i++) A[i] = sc.nextInt();
 		for (int i = 3; i <= N; i++) B[i] = sc.nextInt();
+
+		sc.close();
 
 		// 動的計画法
 		int[] dp = new int[N + 1];
