@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Answer_A18 {
+class Answer_B18 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -34,7 +34,23 @@ class Answer_A18 {
 		}
 
 		// 出力
-		if (dp[N][S] == true) System.out.println("Yes");
-		else System.out.println("No");
+		if (dp[N][S] != true) {
+			System.out.println(-1);
+			return;
+		}
+		
+		ArrayList<Integer> Answer = new ArrayList<Integer>();
+		int Place = N;
+		while (Place > 0) {
+			if (dp[Place][S] != dp[Place - 1][S]) {
+				Answer.add(Place);
+				S -= A[Place];
+			}
+			Place--;
+		}
+		Collections.reverse(Answer);
+		System.out.println(Answer.size());
+		for (int a : Answer) System.out.print(a + " ");
+		System.out.println();
 	}
 };
