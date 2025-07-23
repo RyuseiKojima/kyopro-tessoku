@@ -1,9 +1,10 @@
 import java.util.*;
 
-class Answer_A20 {
+class Answer_B20 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
+		// 編集検索
 		// 入力（文字列は 0 文字目から始まることに注意！）
 		String S = sc.next(); int N = S.length();
 		String T = sc.next(); int M = T.length();
@@ -18,16 +19,16 @@ class Answer_A20 {
 		for (int i = 0; i <= N; i++) {
 			for (int j = 0; j <= M; j++) {
 				if (i >= 1 && j >= 1 && S.charAt(i-1) == T.charAt(j-1)) {
-					dp[i][j] = Math.max(dp[i - 1][j], Math.max(dp[i][j - 1], dp[i - 1][j - 1] + 1));
+					dp[i][j] = Math.min(dp[i - 1][j] + 1, Math.min(dp[i][j - 1] + 1, dp[i - 1][j - 1]));
 				}
 				else if (i >= 1 && j >= 1) {
-					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+					dp[i][j] = Math.min(dp[i - 1][j] + 1, Math.min(dp[i][j - 1] + 1, dp[i - 1][j - 1] + 1));
 				}
 				else if (i >= 1) {
-					dp[i][j] = dp[i - 1][j];
+					dp[i][j] = dp[i - 1][j] + 1;
 				}
 				else if (j >= 1) {
-					dp[i][j] = dp[i][j - 1];
+					dp[i][j] = dp[i][j - 1] + 1;
 				}
 			}
 		}
