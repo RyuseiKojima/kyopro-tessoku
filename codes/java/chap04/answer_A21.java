@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A21 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -12,6 +12,8 @@ class Main {
 			P[i] = sc.nextInt();
 			A[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 動的計画法（LEN は r-l の値）
 		int[][] dp = new int[N + 1][N + 1];
