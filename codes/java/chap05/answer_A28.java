@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A28 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -12,6 +12,8 @@ class Main {
 			T[i] = sc.next().charAt(0);
 			A[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 出力（Answer は現在の黒板の数）
 		long Answer = 0;
