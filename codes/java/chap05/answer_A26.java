@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A26 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -8,6 +8,8 @@ class Main {
 		int Q = sc.nextInt();
 		int[] X = new int[Q + 1];
 		for (int i = 1; i <= Q; i++) X[i] = sc.nextInt();
+
+		sc.close();
 
 		// 出力
 		for (int i = 1; i <= Q; i++) {
