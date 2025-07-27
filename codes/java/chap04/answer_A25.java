@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A25 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -9,6 +9,8 @@ class Main {
 		int W = sc.nextInt();
 		String[] c = new String[H];
 		for (int i = 0; i < H; i++) c[i] = sc.next();
+
+		sc.close();
 
 		// 動的計画法
 		long[][] dp = new long[H][W];
