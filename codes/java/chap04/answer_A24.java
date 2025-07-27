@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A24 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -8,6 +8,8 @@ class Main {
 		int N = sc.nextInt();
 		int[] A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
+
+		sc.close();
 
 		// 配列などの定義
 		int LEN = 0; // LEN は L の長さ（例：L[4] まで書き込まれている場合 LEN=4）
