@@ -1,25 +1,23 @@
 import java.util.*;
 
-class Answer_A30 {
+class Answer_B30 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		// 入力
-		int n = sc.nextInt()-1;
-		int r = sc.nextInt()-1;
+		long H = sc.nextLong();
+		long W = sc.nextLong();
 
 		sc.close();
 
 		// 手順 1: 分子 a を求める
 		long M = 1000000007;
-		int nPlusR = n + r;
 		long a = 1;
-		for (int i = 1; i <= nPlusR; i++) a = (a * i) % M;
+		for (int i = 1; i <= H; i++) a = (a * i) % M;
 
 		// 手順 2: 分母 b を求める
-		long b = 1;
-		for (int i = 1; i <= r; i++) b = (b * i) % M;
-		for (int i = 1; i <= n; i++) b = (b * i) % M;
+		long b = a;
+		for (int i = 1; i <= W; i++) b = (b * i) % M;
 
 		// 手順 3: 答えを求める
 		System.out.println(Division(a, b, M));
