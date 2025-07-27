@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A23 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -11,6 +11,8 @@ class Main {
 		for (int i = 1; i <= M; i++) {
 			for (int j = 1; j <= N; j++) A[i][j] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 配列の初期化
 		int[][] dp = new int[M + 1][1 << N];
