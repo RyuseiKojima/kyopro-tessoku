@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A37 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -12,6 +12,8 @@ class Main {
 		long[] C = new long[M + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextLong();
 		for (int j = 1; j <= M; j++) C[j] = sc.nextLong();
+
+		sc.close();
 
 		// 答えの計算
 		long Answer = 0;
