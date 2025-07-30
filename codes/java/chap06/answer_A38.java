@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A38 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -15,6 +15,8 @@ class Main {
 			R[i] = sc.nextInt();
 			H[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 配列の初期化（1 日は 24 時間）
 		int[] LIM = new int[D + 1];
