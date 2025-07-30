@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A39 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -11,6 +11,8 @@ class Main {
 			A[i - 1][0] = sc.nextInt();
 			A[i - 1][1] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 配列 A を終了時刻（A[x][1]）の昇順にソート
 		Arrays.sort(A, (a1, a2) -> Integer.compare(a1[1], a2[1]));
