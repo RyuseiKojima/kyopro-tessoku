@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A42 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -13,6 +13,8 @@ class Main {
 			A[i] = sc.nextInt();
 			B[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// (a, b) の組を全探索
 		int Answer = 0;
