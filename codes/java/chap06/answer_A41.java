@@ -1,12 +1,14 @@
 import java.util.*;
 
-class Main {
+class Answer_A41 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		// 入力
 		int N = sc.nextInt();
 		String S = sc.next();
+
+		sc.close();
 
 		// 答えを求める
 		boolean Answer = false;
