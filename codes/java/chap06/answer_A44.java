@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A44 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -39,5 +39,7 @@ class Main {
 				if (State == 2) System.out.println(E[N + 1 - x]);
 			}
 		}
+
+		sc.close();
 	}
 };
