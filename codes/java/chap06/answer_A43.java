@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class answer_A43 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -13,6 +13,8 @@ class Main {
 			A[i] = sc.nextInt();
 			B[i] = sc.next().charAt(0);
 		}
+
+		sc.close();
 
 		// 答えを求める
 		int Answer = 0;
