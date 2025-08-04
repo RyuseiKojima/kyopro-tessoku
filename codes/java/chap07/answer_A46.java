@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A46 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -9,6 +9,8 @@ class Main {
 		for (int i = 1; i <= N; i++) {
 			points[i] = new Point2D(sc.nextInt(), sc.nextInt());
 		}
+
+		sc.close();
 
 		// 貪欲法
 		int[] answer = playGreedy(N, points);
