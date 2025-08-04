@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A45 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -8,6 +8,8 @@ class Main {
 		int N = sc.nextInt();
 		char C = sc.next().charAt(0);
 		String A = sc.next();
+
+		sc.close();
 
 		// スコアの計算
 		int score = 0;
