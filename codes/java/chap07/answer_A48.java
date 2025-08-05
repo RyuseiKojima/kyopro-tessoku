@@ -10,6 +10,8 @@ class Main {
 			points[i] = new Point2D(sc.nextInt(), sc.nextInt());
 		}
 
+		sc.close();
+
 		// 焼きなまし法
 		int[] answer = simulatedAnnealing(N, points);
 
