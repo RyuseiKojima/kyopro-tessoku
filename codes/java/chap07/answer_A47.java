@@ -10,6 +10,8 @@ class Main {
 			points[i] = new Point2D(sc.nextInt(), sc.nextInt());
 		}
 
+		sc.close();
+
 		// 山登り法
 		int[] answer = hillClimbing(N, points);
 
