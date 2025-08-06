@@ -4,7 +4,7 @@
 
 import java.util.*;
 
-class Main {
+class Answer_A49_greedy2_40978pts {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -20,6 +20,8 @@ class Main {
 			R[i] = sc.nextInt();
 		}
 
+		sc.close(); // Close the scanner to prevent resource leaks
+
 		// 配列 A の初期化
 		int[] A = new int[21];
 		int[] PatA = new int[21];
@@ -30,28 +32,28 @@ class Main {
 		for (int i = 1; i <= T; i++) {
 			// パターン A の場合のスコアを求める
 			int ScoreA = 0;
-			for (int j = 1; j <= 20; j++) PatA[j] = A[j];
+			for (int j = 1; j <= N; j++) PatA[j] = A[j];
 			PatA[P[i]] += 1;
 			PatA[Q[i]] += 1;
 			PatA[R[i]] += 1;
-			for (int j = 1; j <= 20; j++) ScoreA += Math.abs(PatA[j]);
+			for (int j = 1; j <= N; j++) ScoreA += Math.abs(PatA[j]);
 
 			// パターン B の場合のスコアを求める
 			int ScoreB = 0;
-			for (int j = 1; j <= 20; j++) PatB[j] = A[j];
+			for (int j = 1; j <= N; j++) PatB[j] = A[j];
 			PatB[P[i]] -= 1;
 			PatB[Q[i]] -= 1;
 			PatB[R[i]] -= 1;
-			for (int j = 1; j <= 20; j++) ScoreB += Math.abs(PatB[j]);
+			for (int j = 1; j <= N; j++) ScoreB += Math.abs(PatB[j]);
 
 			// スコアの小さい方を採用
 			if (ScoreA <= ScoreB) {
 				System.out.println("A");
-				for (int j = 1; j <= 20; j++) A[j] = PatA[j];
+				for (int j = 1; j <= N; j++) A[j] = PatA[j];
 			}
 			else {
 				System.out.println("B");
-				for (int j = 1; j <= 20; j++) A[j] = PatB[j];
+				for (int j = 1; j <= N; j++) A[j] = PatB[j];
 			}
 		}
 	}

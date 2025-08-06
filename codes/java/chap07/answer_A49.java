@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A49 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -14,6 +14,8 @@ class Main {
 			Q[i] = sc.nextInt();
 			R[i] = sc.nextInt();
 		}
+
+		sc.close();
 		
 		// ビームサーチ（書籍とは異なり、ビームサーチの復元は関数の中で行う）
 		char[] answer = beamSearch(N, T, P, Q, R);

@@ -4,12 +4,11 @@
  
 import java.util.*;
  
-class Main {
+class Answer_A49_greedy1_37454pts {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
  
 		// 入力
-		int N = 20;
 		int T = sc.nextInt();
 		int[] P = new int[T + 1];
 		int[] Q = new int[T + 1];
@@ -19,6 +18,8 @@ class Main {
 			Q[i] = sc.nextInt();
 			R[i] = sc.nextInt();
 		}
+
+		sc.close(); // Close the scanner to prevent resource leaks
  
 		// 配列 A の初期化
 		int[] A = new int[21];
