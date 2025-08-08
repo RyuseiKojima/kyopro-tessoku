@@ -4,7 +4,7 @@
 
 import java.util.*;
 
-class Main {
+class Answer_A50 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -16,6 +16,8 @@ class Main {
 				A[i][j] = sc.nextInt();
 			}
 		}
+
+		sc.close();
 
 		// 初期解を生成
 		Random rnd = new Random();
