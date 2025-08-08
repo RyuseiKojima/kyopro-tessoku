@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A52 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -13,6 +13,8 @@ class Main {
 				x[i] = sc.next();
 			}
 		}
+
+		sc.close();
 
 		// クエリの処理
 		Queue<String> T = new LinkedList<>();
