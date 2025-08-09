@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A54 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -18,6 +18,8 @@ class Main {
 				x[i] = sc.next();
 			}
 		}
+
+		sc.close();
 
 		// クエリの処理
 		Map<String, Integer> scoreMap = new HashMap<>();
