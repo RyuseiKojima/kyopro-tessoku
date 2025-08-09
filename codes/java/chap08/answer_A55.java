@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A55 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -11,6 +11,8 @@ class Main {
 			queryType[i] = sc.nextInt();
 			x[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// クエリの処理
 		TreeSet<Integer> S = new TreeSet<>();
