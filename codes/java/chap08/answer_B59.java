@@ -1,41 +1,24 @@
 import java.util.*;
 
-class Answer_A59 {
+class Answer_B59 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
-		int Q = sc.nextInt();
-		int[] queryType = new int[Q + 1];
-		int[] pos = new int[Q + 1];
-		int[] x = new int[Q + 1];
-		int[] l = new int[Q + 1];
-		int[] r = new int[Q + 1];
-		for (int i = 1; i <= Q; i++) {
-			queryType[i] = sc.nextInt();
-			if (queryType[i] == 1) {
-				pos[i] = sc.nextInt();
-				x[i] = sc.nextInt();
-			}
-			if (queryType[i] == 2) {
-				l[i] = sc.nextInt();
-				r[i] = sc.nextInt();
-			}
+		int[] A = new int[N];
+		for (int i = 0; i < N; i++) {
+			A[i] = sc.nextInt();
 		}
-
 		sc.close();
 
 		// クエリの処理
+		long ans = 0;
 		SegmentTree Z = new SegmentTree(N);
-		for (int i = 1; i <= Q; i++) {
-			if (queryType[i] == 1) {
-				Z.update(pos[i], x[i]);
-			}
-			if (queryType[i] == 2) {
-				// 最初のセルに対応する半開区間は [1, size + 1)
-				System.out.println(Z.query(l[i], r[i], 1, Z.size + 1, 1));
-			}
+		for (int i = 0; i < N; i++) {
+			ans += Z.query(A[i] + 1, N + 1, 1, Z.size + 1, 1);
+			Z.update(A[i], 1);
 		}
+		System.out.println(ans);
 	}
 
 	// セグメント木を実装したクラス SegmentTree
