@@ -5,7 +5,17 @@ class Answer_A57 {
 		// 入力
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
-		int K = sc.nextInt();
+		int Q = sc.nextInt();
+		int[] A = new int[N + 1];
+		int[] X = new int[Q + 1];
+		int[] Y = new int[Q + 1];
+		for (int i = 1; i <= N; i++) {
+			A[i] = sc.nextInt();
+		}
+		for (int i = 1; i <= Q; i++) {
+			X[i] = sc.nextInt();
+			Y[i] = sc.nextInt();
+		}
 
 		sc.close();
 
@@ -13,14 +23,7 @@ class Answer_A57 {
 		final int LEVELS = 30;
 		int[][] dp = new int[LEVELS][N + 1];
 		for (int i = 1; i <= N; i++) {
-			// iからiの各桁の和を引いた値を計算
-			int sum = 0;
-			int tmp = i;
-			while (tmp > 0) {
-				sum += tmp % 10;
-				tmp /= 10;
-			}
-			dp[0][i] = i - sum;
+			dp[0][i] = A[i];
 		}
 		for (int d = 1; d <= 29; d++) {
 			for (int i = 1; i <= N; i++) {
@@ -29,14 +32,14 @@ class Answer_A57 {
 		}
 
 		// クエリの処理
-		// for (int i = 1; i <= Q; i++) {
-		// 	int currentPlace = X[i];
-		// 	for (int d = 29; d >= 0; d--) {
-		// 		if ((Y[i] / (1 << d)) % 2 == 1) {
-		// 			currentPlace = dp[d][currentPlace];
-		// 		}
-		// 	}
-		// 	System.out.println(currentPlace);
-		// }
+		for (int i = 1; i <= Q; i++) {
+			int currentPlace = X[i];
+			for (int d = 29; d >= 0; d--) {
+				if ((Y[i] / (1 << d)) % 2 == 1) {
+					currentPlace = dp[d][currentPlace];
+				}
+			}
+			System.out.println(currentPlace);
+		}
 	}
 }
