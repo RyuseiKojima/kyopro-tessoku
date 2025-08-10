@@ -1,32 +1,32 @@
 import java.util.*;
 
-class Answer_A56 {
+class Answer_B56 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
-		sc.nextInt();
+		int N = sc.nextInt();
 		int Q = sc.nextInt();
 		String S = sc.next();
-		int[] a = new int[Q + 1];
-		int[] b = new int[Q + 1];
-		int[] c = new int[Q + 1];
-		int[] d = new int[Q + 1];
+		int[] L = new int[Q + 1];
+		int[] R = new int[Q + 1];
 		for (int i = 1; i <= Q; i++) {
-			a[i] = sc.nextInt();
-			b[i] = sc.nextInt();
-			c[i] = sc.nextInt();
-			d[i] = sc.nextInt();
+			L[i] = sc.nextInt();
+			R[i] = sc.nextInt();
 		}
 
 		sc.close();
 
+		// Sの文字列を反転
+		String S_rev = new StringBuilder(S).reverse().toString();
+
 		// 文字列のハッシュの準備
 		StringHash Z = new StringHash(S);
+		StringHash Z_rev = new StringHash(S_rev);
 
 		// クエリに答える
 		for (int i = 1; i <= Q; i++) {
-			long hash1 = Z.hashValue(a[i], b[i]);
-			long hash2 = Z.hashValue(c[i], d[i]);
+			long hash1 = Z.hashValue(L[i], R[i]);
+			long hash2 = Z_rev.hashValue(N - R[i] + 1, N - L[i] + 1);
 			if (hash1 == hash2) {
 				System.out.println("Yes");
 			}
@@ -62,7 +62,6 @@ class Answer_A56 {
 			}
 		}
 		// S[l, r] のハッシュ値を返す関数
-		// 余りの計算に注意！（5.3 節）
 		long hashValue(int l, int r) {
 			long val = h[r] - h[l - 1] * power100[r - l + 1] % MOD;
 			if (val < 0) {
