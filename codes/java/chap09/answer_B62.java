@@ -1,13 +1,13 @@
 import java.util.*;
 import java.io.*;
 
-class Answer_A62 {
+class Answer_B62 {
 	public static void main(String[] args) throws IOException {
 		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
-		int N = Integer.parseInt(st.nextToken());
+		N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		int[] A = new int[M + 1];
 		int[] B = new int[M + 1];
@@ -29,36 +29,38 @@ class Answer_A62 {
 		
 		// 深さ優先探索
 		visited = new boolean[N + 1];
-		for (int i = 1; i <= N; i++) {
-			visited[i] = false;
-		}
+		list.add(1);
 		dfs(1);
 
-		// 連結かどうかの判定（answer = true のとき連結）
-		boolean answer = true;
-		for (int i = 1; i <= N; i++) {
-			if (visited[i] == false) {
-				answer = false;
-			}
+		for (int i : answer) {
+			System.out.print(i + " ");
 		}
-
-		// 答えの出力
-		if (answer == true) {
-			System.out.println("The graph is connected.");
-		}
-		else {
-			System.out.println("The graph is not connected.");
-		}
+		System.out.println();
 	}
 	
+	static int N;
 	static boolean[] visited; // 頂点 x が青色の場合、visited[x] = true
 	static ArrayList<Integer>[] G;
+	static ArrayList<Integer> list = new ArrayList<>();
+	static ArrayList<Integer> answer;
 	static void dfs(int pos) { // pos は現在位置
+		// Nにたどり着いたら終了
+		if (pos == N) {
+			answer = (ArrayList<Integer>) list.clone();
+			return;
+		}
+
+		// その他の場合
 		visited[pos] = true;
-		for (int i : G[pos]) {
-			if (visited[i] == false) {
-				dfs(i);
+		for (int i = 0; i < G[pos].size(); i++) {
+			int nex = G[pos].get(i);
+			if (visited[nex] == false) {
+				list.add(nex); // 頂点 nex を経路に追加
+				dfs(nex);
+				// Nに辿り着かなかったときは、経路から nex を削除
+				list.remove(list.size() - 1);
 			}
 		}
+		return;
 	}
 }
