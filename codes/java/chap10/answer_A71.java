@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A71 {
 	public static void main(String[] args) {
 		// 入力（書籍とは異なり A[i], B[i] は 0-indexed で入力しています）
 		Scanner sc = new Scanner(System.in);
@@ -13,6 +13,8 @@ class Main {
 		for (int i = 0; i < N; i++) {
 			B[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 配列のソート
 		Arrays.sort(A);
