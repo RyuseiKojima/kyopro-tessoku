@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A72 {
 	public static void main(String[] args) {
 		// 入力（書籍とは異なり c[i][j] は 0-indexed で入力しています）
 		Scanner sc = new Scanner(System.in);
@@ -15,23 +15,23 @@ class Main {
 			}
 		}
 
+		sc.close();
+
 		// ビット全探索
 		int answer = 0;
+		// 2^H 通りの操作を試す（行の選び方）
 		for (int t = 0; t < (1 << H); t++) {
 			// まずはマス目を初期盤面に設定
 			char[][] d = new char[H][W];
 			for (int i = 0; i < H; i++) {
-				for (int j = 0; j < W; j++) {
-					d[i][j] = c[i][j];
-				}
+				System.arraycopy(c[i], 0, d[i], 0, W);
 			}
 
 			// 行に対して操作を行う
 			// 変数 remainingSteps は残り操作回数
 			int remainingSteps = K;
 			for (int i = 0; i < H; i++) {
-				int wari = (1 << i);
-				if ((t / wari) % 2 == 1) {
+				if ((t & (1 << i)) != 0) {
 					remainingSteps -= 1;
 					for (int j = 0; j < W; j++) {
 						d[i][j] = '#';
