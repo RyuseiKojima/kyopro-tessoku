@@ -1,34 +1,42 @@
 import java.util.*;
 
-class Answer_A69 {
+class Answer_B69 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
+		int M = sc.nextInt();
 		String[] C = new String[N + 1];
-		for (int i = 0; i < N; i++) {
-			C[i + 1] = sc.next();
+		for (int i = 1; i <= N; i++) {
+			C[i] = sc.next();
 		}
 
 		sc.close();
 
 		// グラフを構成する
-		MaximumFlow Z = new MaximumFlow(2 * N + 2);
+		MaximumFlow Z = new MaximumFlow(N + 24 + 3);
 		for (int i = 1; i <= N; i++) {
-			for (int j = 1; j <= N; j++) {
-				if (C[i].charAt(j - 1) == '#') {
-					Z.addEdge(i, j + N, 1);
+			for (int j = 0; j < 24; j++) {
+				if (C[i].charAt(j) == '1') {
+					Z.addEdge(i, j + N + 1, 1);
 				}
 			}
 		}
 		for (int i = 1; i <= N; i++) {
-			Z.addEdge(2 * N + 1, i, 1);     // 「s → 青色」の辺
-			Z.addEdge(i + N, 2 * N + 2, 1); // 「赤色 → t」の辺
+			Z.addEdge(N + 25, i, 10); // 従業員は 10 時間までしか働けない
+		}
+
+		for (int i = 0; i < 24; i++) {
+			Z.addEdge(i + N + 1, N + 26, M); // シフトは M 人以上欲しい
 		}
 
 		// 答えを求めて出力
-		int answer = Z.maxFlow(2 * N + 1, 2 * N + 2);
-		System.out.println(answer);
+		int answer = Z.maxFlow(N + 25, N + 26);
+		if (answer == 24 * M) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
 	}
 	
 	// 最大フローを求める用の辺のクラス FlowEdge
