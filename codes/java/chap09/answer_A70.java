@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A70 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -18,6 +18,8 @@ class Main {
 			Y[i] = sc.nextInt();
 			Z[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 隣接リストを作成し、グラフに辺を追加
 		ArrayList<Integer>[] G = new ArrayList[1 << N];
