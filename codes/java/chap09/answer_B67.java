@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Answer_A67 {
+class Answer_B67 {
 	public static void main(String[] args) throws IOException {
 		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
@@ -19,8 +19,7 @@ class Answer_A67 {
 			C[i] = Integer.parseInt(st.nextToken());
 		}
 
-		// 辺の長さの小さい順にソートする
-		// （書籍内のコードでは edgeList は (長さ, 辺番号) のペアになっていますが、ここでは辺番号のみを記録した配列を長さの小さい順にソートするという方法をとります）
+		// 辺の長さの大きい順にソートする
 		Integer[] edgeList = new Integer[M];
 		for (int i = 0; i < M; i++) {
 			edgeList[i] = i + 1;
@@ -30,12 +29,12 @@ class Answer_A67 {
 			new Comparator<Integer>() {
 				@Override
 				public int compare(Integer id1, Integer id2) {
-					return C[id1] - C[id2]; // C[id1] < C[id2] のとき id1 が id2 よりも前に来るようにする
+					return C[id2] - C[id1];
 				}
 			}
 		);
 		
-		// 最小全域木を求める
+		// 最大全域木を求める
 		int answer = 0;
 		UnionFind uf = new UnionFind(N);
 		for (int i = 0; i < M; i++) {
