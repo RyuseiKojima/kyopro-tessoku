@@ -1,31 +1,47 @@
 import java.util.*;
 
-class Answer_A68 {
+class Answer_B68 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		int M = sc.nextInt();
+		int N = sc.nextInt(); // 駅の数
+		int M = sc.nextInt(); // 制約の数
+		int[] P = new int[N + 1]; // 各駅の効果
+		for (int i = 1; i <= N; i++) {
+			P[i] = sc.nextInt();
+		}
 		int[] A = new int[M + 1];
 		int[] B = new int[M + 1];
-		int[] C = new int[M + 1];
 		for (int i = 1; i <= M; i++) {
 			A[i] = sc.nextInt();
 			B[i] = sc.nextInt();
-			C[i] = sc.nextInt();
 		}
 
 		sc.close();
 
 		// 辺を追加
-		MaximumFlow Z = new MaximumFlow(N);
+		int offset = 0; // 最大利益
+		MaximumFlow Z = new MaximumFlow(N + 2);
+		for (int i = 1; i <= N; i++) {
+			// 効果が正の場合は、特急駅にする場合（始点→i）の利益を P[i] に設定
+			if (P[i] >= 0) {
+				Z.addEdge(N + 1, i, P[i]);
+				offset += P[i];
+			}
+			// 効果が負の場合は、特急駅にしない場合（i→終点）の利益を -P[i] に設定
+			if (P[i] < 0) {
+				Z.addEdge(i, N + 2, -P[i]);
+			}
+		}
+
+		// グラフを作る（後半パート）
 		for (int i = 1; i <= M; i++) {
-			Z.addEdge(A[i], B[i], C[i]);
+			Z.addEdge(A[i], B[i], 1000000000);
 		}
 
 		// 答えを求めて出力
-		int answer = Z.maxFlow(1, N);
-		System.out.println(answer);
+		int Answer = offset - Z.maxFlow(N + 1, N + 2);
+		System.out.println(Answer);
 	}
 	
 	// 最大フローを求める用の辺のクラス FlowEdge
