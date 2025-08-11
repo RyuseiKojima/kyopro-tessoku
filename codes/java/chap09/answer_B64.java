@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Answer_A64 {
+class Answer_B64 {
 	public static void main(String[] args) throws IOException {
 		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
@@ -61,17 +61,28 @@ class Answer_A64 {
 				}
 			}
 		}
-		
-		// 答えを出力（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
-		PrintWriter output = new PrintWriter(System.out);
-		for (int i = 1; i <= N; i++) {
-			if (cur[i] != INF) {
-				output.println(cur[i]);
-			}
-			else {
-				output.println("-1");
+
+		ArrayList<Integer> ans = new ArrayList<>();
+		int current = N;
+		while (true) {
+			ans.add(current);
+			if (current == 1) break;
+			ArrayList <Edge> edges = G[current];
+			for (Edge edge :edges) {
+				if (cur[edge.to] + edge.cost == cur[current]) {
+					current = edge.to;
+					break;
+				}
 			}
 		}
+		Collections.reverse(ans);
+
+		// 答えを出力（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		PrintWriter output = new PrintWriter(System.out);
+		for (Integer integer : ans) {
+			output.print(integer + " ");
+		}
+		output.println();
 		output.flush();
 	}
 
