@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Main {
+class Answer_A73 {
 	public static void main(String[] args) throws IOException {
 		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
@@ -37,7 +37,7 @@ class Main {
 			}
 		}
 		
-		// ダイクストラ法（ダイクストラ法の詳しい説明については本書籍の 9.4 節、および ../chap09/answer_A64.java を参照）
+		// ダイクストラ法
 		final long INF = (1L << 60);
 		boolean[] kakutei = new boolean[N + 1];
 		long[] cur = new long[N + 1];
