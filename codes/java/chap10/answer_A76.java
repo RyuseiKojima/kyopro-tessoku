@@ -1,17 +1,19 @@
 import java.util.*;
 
-class Main {
+class Answer_A76 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		int W = sc.nextInt();
-		int L = sc.nextInt();
-		int R = sc.nextInt();
+		int N = sc.nextInt(); // 足場の数
+		int W = sc.nextInt(); // 川の幅
+		int L = sc.nextInt(); // 最小跳躍距離
+		int R = sc.nextInt(); // 最大跳躍距離
 		int[] X = new int[N + 2];
 		for (int i = 1; i <= N; i++) {
 			X[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 西岸を足場 0、東岸を足場 N+1 とみなす
 		X[0] = 0;
@@ -24,12 +26,12 @@ class Main {
 		dp[0] = 1;
 		sum[0] = 1;
 		for (int i = 1; i <= N + 1; i++) {
-			int posL = lowerBound(X, X[i] - R);
-			int posR = lowerBound(X, X[i] - L + 1) - 1;
-			// dp[i] の値を累積和で計算（引き算の余りに注意！）
+			int posL = lowerBound(X, X[i] - R); // 左端の位置
+			int posR = lowerBound(X, X[i] - L + 1) - 1; // 右端の位置
+			// dp[i] の値を累積和で計算
 			dp[i] += (posR >= 0 ? sum[posR] : 0);
 			dp[i] -= (posL >= 1 ? sum[posL - 1] : 0);
-			dp[i] = (dp[i] + MOD) % MOD;
+			dp[i] = (dp[i] + MOD) % MOD; // 負の値を防ぐために MOD を加える
 			// 累積和 sum[i] を更新
 			sum[i] = sum[i - 1] + dp[i];
 			sum[i] %= MOD;
