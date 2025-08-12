@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A74 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -11,6 +11,8 @@ class Main {
 				P[i][j] = sc.nextInt();
 			}
 		}
+
+		sc.close();
 
 		// 「転倒数を求める問題」2 つに分解する
 		int[] X = new int[N + 1];
