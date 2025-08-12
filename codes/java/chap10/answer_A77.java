@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class Answer_A77 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
@@ -11,6 +11,8 @@ class Main {
 		for (int i = 1; i <= N; i++) {
 			A[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// 二分探索（left: 現在の下限 ／ right: 現在の上限）
 		int left = 1, right = 1000000000;
