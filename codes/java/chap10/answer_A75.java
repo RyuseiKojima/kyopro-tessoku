@@ -1,16 +1,18 @@
 import java.util.*;
 
-class Main {
+class Answer_A75 {
 	public static void main(String[] args) {
 		// 入力
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		int[] T = new int[N + 1];
-		int[] D = new int[N + 1];
+		int N = sc.nextInt(); // 設問数
+		int[] T = new int[N + 1]; // 解答時間
+		int[] D = new int[N + 1]; // 制約時間
 		for (int i = 1; i <= N; i++) {
 			T[i] = sc.nextInt();
 			D[i] = sc.nextInt();
 		}
+
+		sc.close();
 
 		// D[i] の小さい順に並べ替える
 		PairInt[] problems = new PairInt[N];
@@ -24,7 +26,7 @@ class Main {
 		}
 
 		// 動的計画法：前準備
-		int maxD = 0; // D[i] の最大値（書籍内のコードでは「1440」という定数を使っているが、ここでは代わりに MAX_D を使うことにする）
+		int maxD = 0; // D[i] の最大値
 		for (int i = 1; i <= N; i++) {
 			maxD = Math.max(maxD, D[i]);
 		}
